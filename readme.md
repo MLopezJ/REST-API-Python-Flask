@@ -11,4 +11,3 @@ It use an virtual enviroment, in that way the app manage the dependencies withou
 
 
 For the develoment of this project, I'm following the suggested tutorial in the Flask documentation (https://flask.palletsprojects.com/en/1.1.x/tutorial/).
-
