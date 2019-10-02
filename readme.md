@@ -26,7 +26,7 @@ Is a template for generating a "section" of an app, like a "mold".
 A decorator is a function how takes another function and extends the behavior of the latter function without modifying it explicitly. It allow the calling of higher-order functions (similar to higher-order components, in React). They can be used for create middlewares. 
 
 ### Templates 
-Are files who can contains static or dynamic data. For example, a html doc. 
+Are files who can contains static or dynamic data. For example, a html doc or a css file. 
 
 
 In python, functions are first-class objects. It means there are no restrictions on the object's use, it can be dynamically created, destroyed, passed to a function and returned as a value and still have all the rights. But actually,  
