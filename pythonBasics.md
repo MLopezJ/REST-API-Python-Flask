@@ -79,8 +79,91 @@ When a reference is made inside a function, the name is searched first in the in
 
 If there is a function inside another function, a new scope is nested inside the local scope.
 
+## Reading errors
+Its recommended read the errors from the bottom to the top. This way the message will be easy to understand
+
+## PEP 8 
+Is the name of the style guide for Python Code: https://pep8.org/
+
+## Strings
+They can be defined by single quote of double quote, but whatever you used, you should be consistent with that. Longs strings can be defined with triple quote (""")
+
+## Is
+The operator 'is' is used to make sure if the element have the same memory ref 
+
+## Defaults arguments 
+Are arguments declared in the function. They looks like this:
+```Python
+def foo(name, lastname='Lopez'):
+    print('hello', name, lastname)
+foo('Mauro') #Will print 'Hello Mauro Lopez'
+foo('Felipe','Martinez') #Will print 'Hello Felipe Martinez'
+```
+If the fuction is called without set the value of the argument, it will be the default declared previusly. 
+
+## Errors and Exceptions
+There is at last two distinguishable kind of errors in Python: Syntax error and Execptions. 
+
+
+ * Syntax error: can't undestand what you are trying to say. For example:  
+    ```Python
+    print (hello world) 
+    ```
+ * Execptions: When python understands what you are trying to saying, but get troubles when follow the instructions. For example:
+    ```Python
+    callMe = "maybe"
+    print (callme)
+    ```
+
+### Handling Exceptions 
+You can hand the exceptions with the help of "try" and "except" keywords.
+
+```Python
+    while (true):
+        try: 
+            x = int( input ("Please enter a number:" ) )
+            break
+        except ValueError:
+            print("Error! No valid number.")
+```
+### Raising exceptions
+The raise statement allows the programer to force a specified exception to occur.
+
+```Python
+response = requests.get('http://example/api')
+status_code = response.status_code
+
+if status_code !== 200:
+    raise RuntimeError(f"An error ocurred. Status code:"{status_code})
+else:
+    print (response)    
+```
+
+
+## Dir
+type 'dir' and into parenthesis an object (or a data type like str, int, list, etc) it will show a list of valid attributes for that object. 
+```Python
+print(dir(list))
+```
+
+## Help
+
+
 ## Dynamic typing
 Python execute type check only when the code runs, so, it have dinamic typing. It means there can change the type of the var data over its lifetime.
 
 ## Type of data
 In Python, data can be simple or composed. Simple are bool, string and integer. Composed are list, classes and others.
+
+### Just to know 
+* 0 (the int value) can be taken as False and any other number can be taken as True
+
+* In cycles, you can interact with the flow of the iteration with "continue" and "break". Continue will jump into the beginning of the cycle just after the interpreter read the stament and break will end with the cycle.
+
+
+
+## Resources
+
+### Learning python with Ninna from Frontend Master 
+    https://www.learnpython.dev/
+
