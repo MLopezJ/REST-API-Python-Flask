@@ -26,7 +26,7 @@ Are data containers wich their values cant be changes. Are usually declared and 
 Its the standard for name the vars and constants. 
 
 ## Data types
-Every value in Python has a datatype. We dont have to forget that everything is an object in Python, so data types are actually classes and vars are instances (objects) of these classes.
+Every value in Python has a datatype. We dont have to forget that everything is an object in Python, so data types are actually classes and vars are instances (objects) of these classes. You can think of a object as a generic container.
 
     Numbers: int, float, complex
     Strings: Sequence on unicode chatacters
@@ -35,6 +35,88 @@ Every value in Python has a datatype. We dont have to forget that everything is 
     Set: Unordered collection of unique items. 
     Dictionary: unordered collection of key-value pairs
     Boolean: Logic value, could be True or False
+
+## Classes 
+Are like molds or container who simulate the struct of something. Is a bundle of data of different types and functions logically grouped together.
+
+## Objects 
+Are an instances of that molds.  
+
+But, not all objects are created equal!!! Because there is two kinds of objects: Mutable and Inmutable.
+
+* Mutable: list, dict, set, byte aeeay, user-defined classes
+* Inmutable: int, float, long, complex, string tuple, bool
+
+But, what does mutable and inmutable means?
+Basicaly, the value of the mutable object can be modifies in place after the creation, while the value of the inmutable object can not! 
+
+
+``` Python 
+# "a" is an inmutable object because is an int class type
+a = 89
+print(id(a)) # 4434330504
+a += 1
+print(id(a)) # 4430689552  
+
+# "b" is an mutable object because is a list class type
+b = [1,2,3]
+print(id(b)) # 4430688016
+b += [4]
+print(id(b)) # 4430688016  
+```
+
+  
+## Classmethod decorator 
+Its a method how belongs to the class and not to the instances. The first argument in the parameter is the reference to a class object. For example:
+
+``` Python 
+class Person: 
+    def __init__(self, name, age): 
+        self.name = name 
+        self.age = age 
+      
+    @classmethod
+    def fromBirthYear(cls, name, year): 
+        return cls(name, date.today().year - year) 
+     
+person1 = Person('mayank', 21) 
+person2 = Person.fromBirthYear('mayank', 1996) 
+  
+print (person1.age) # 21 
+print (person2.age) # 22
+```
+
+## Inheritance
+Is when a class uses code who already was constructed in another class. For example:
+
+``` Python 
+class Parent: 
+    def __init__(self, eye_color, last_name): 
+        self.eye_color = eye_color 
+        self.last_name = last_name 
+    
+    def greeting():
+        print("Hello")
+   
+class Child (Parent):
+    def __init__(self, eye_color, last_name, hair_color):
+        super().__init__(eye_color, last_name) 
+        # With super() you can access to the parents methods 
+        self.hair_color = hair_color
+    
+    def something():
+        print("Something")
+
+parent = Parent('black','Lopez')
+child = Child('black','Lopez', 'black')
+
+parent.greeting() # Hello
+child.greeting()  # Hello
+child.something() # Somehting
+
+
+```
+
 
 ## Type conversion
 There is two ways to make type conversions:
@@ -118,7 +200,7 @@ There is at last two distinguishable kind of errors in Python: Syntax error and 
 ### Handling Exceptions 
 You can hand the exceptions with the help of "try" and "except" keywords.
 
-```Python
+```Python  
     while (true):
         try: 
             x = int( input ("Please enter a number:" ) )
@@ -139,6 +221,41 @@ else:
     print (response)    
 ```
 
+## Comprehensions 
+You can avoid the common way of create list by creating it with recursivity. 
+
+From this:
+```Python
+names = ['Mauro', 'Felipe', 'Bryan', 'Giss', 'Crisly', 'Carlos']
+upper_names = []
+for name in names:
+    upper_case_name = name.upper()
+    upper_names.append(upper_case_name)
+print(upper_names)
+```
+
+To this:
+```Python
+upper_names = [name.upper() for name in names]
+print (upper_names)
+```
+
+You can add conditionals too:
+
+```Python
+upper_names = [name.upper() for name in names if name != "Mauro"]
+print (upper_names)
+```
+## Zip
+Its an object how contains tuples created by the union of lists. 
+
+```Python
+name = ("Mauro", "Marco", "Bryan")
+second_name = ("Alberto", "Felipe", "", "Vicky")
+last_name = ("Lopez", "Martinez","Arrieta")
+complete_name = zip(name, second_name, last_name)
+print(list(complete_name)) # [('Mauro', 'Alberto', 'Lopez'), ('Marco', 'Felipe', 'Martinez'), ('Bryan', '', 'Arrieta')]
+```
 
 ## Dir
 type 'dir' and into parenthesis an object (or a data type like str, int, list, etc) it will show a list of valid attributes for that object. 
